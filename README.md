@@ -8,6 +8,8 @@ Github URL : https://github.com/yashasvi6587/Namoza
 
 Live URL : https://eloquent-moonbeam-dea787.netlify.app/
 
+Loom Video URL : https://www.loom.com/share/319f4415226542049ad71ba27c4e3a3c
+
 ## Deliverables
 
 ### Task 01: GTM Event Schema
