@@ -4,6 +4,10 @@
 
 72-hour assignment building a complete GTM infrastructure, high-converting landing page, and CRM integration architecture for **OrthoNow** - a 9-clinic orthopaedic chain across Bengaluru, Hyderabad, and Chennai.
 
+Github URL : https://github.com/yashasvi6587/Namoza
+
+Live URL : https://eloquent-moonbeam-dea787.netlify.app/
+
 ## Deliverables
 
 ### Task 01: GTM Event Schema
