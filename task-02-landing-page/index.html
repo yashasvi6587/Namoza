@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Orthopaedic Consultation - OrthoNow</title>
+    <meta name="description"
+        content="Get expert orthopaedic opinion for knee & back pain. Book consultation at OrthoNow - 9 clinics in Bengaluru, Hyderabad, Chennai.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #222;
+            background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        header {
+            padding: 32px 0 16px 0;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #e74c3c;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+
+        .headline {
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 1.3;
+            color: #1a1a1a;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .subheadline {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 32px;
+            font-weight: 400;
+        }
+
+        .trust-section {
+            background: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 32px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .trust-item {
+            text-align: center;
+        }
+
+        .trust-number {
+            font-size: 24px;
+            font-weight: 700;
+            color: #e74c3c;
+        }
+
+        .trust-label {
+            font-size: 12px;
+            color: #666;
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .trust-divider {
+            height: 1px;
+            background: #eee;
+            margin: 16px 0;
+        }
+
+        .trust-text {
+            font-size: 14px;
+            color: #555;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .problem-section {
+            background: #fef3f2;
+            border-left: 4px solid #e74c3c;
+            padding: 16px;
+            border-radius: 4px;
+            margin-bottom: 32px;
+        }
+
+        .problem-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #e74c3c;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .problem-text {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .form-wrapper {
+            background: #fff;
+            border-radius: 8px;
+            padding: 28px 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            margin-bottom: 24px;
+        }
+
+        .form-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #1a1a1a;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 14px;
+            font-size: 16px;
+            border: 1.5px solid #ddd;
+            border-radius: 6px;
+            font-family: inherit;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #e74c3c;
+            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+        }
+
+        input:valid {
+            border-color: #27ae60;
+        }
+
+        .form-note {
+            font-size: 12px;
+            color: #999;
+            margin-top: 4px;
+        }
+
+        .cta-button {
+            width: 100%;
+            padding: 14px 20px;
+            font-size: 16px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #e74c3c 0%, #d63829 100%);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+        }
+
+        .cta-button.loading {
+            opacity: 0.7;
+            cursor: not-allowed;
+            position: relative;
+        }
+
+        .success-message {
+            display: none;
+            background: #d4edda;
+            border-left: 4px solid #27ae60;
+            padding: 20px;
+            border-radius: 4px;
+            margin-bottom: 24px;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .success-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #27ae60;
+            margin-bottom: 8px;
+        }
+
+        .success-text {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 32px 0 40px 0;
+            font-size: 12px;
+            color: #999;
+        }
+
+        .privacy-link {
+            color: #e74c3c;
+            text-decoration: none;
+        }
+
+        .privacy-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 12px;
+            }
+
+            header {
+                padding: 24px 0 12px 0;
+            }
+
+            .headline {
+                font-size: 24px;
+            }
+
+            .subheadline {
+                font-size: 15px;
+                margin-bottom: 24px;
+            }
+
+            .form-wrapper {
+                padding: 20px 16px;
+            }
+
+            .cta-button {
+                padding: 12px 16px;
+                font-size: 15px;
+            }
+        }
+
+        @media (min-width: 481px) and (max-width: 768px) {
+            .headline {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- GTM dataLayer initialization -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+    </script>
+
+    <div class="container">
+        <header>
+            <div class="logo">OrthoNow</div>
+            <h1 class="headline">Expert Orthopaedic Care for Your Knee & Back Pain</h1>
+            <p class="subheadline">Get a personalized treatment plan from our specialist doctors - Book your
+                consultation today</p>
+        </header>
+
+        <!-- Trust Section -->
+        <section class="trust-section">
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <div class="trust-number">9</div>
+                    <div class="trust-label">Clinics</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-number">50+</div>
+                    <div class="trust-label">Doctors</div>
+                </div>
+            </div>
+            <div class="trust-divider"></div>
+            <div class="trust-text">
+                "Trusted by 10,000+ patients across Bengaluru, Hyderabad & Chennai for expert orthopaedic care"
+            </div>
+        </section>
+
+        <!-- Problem Callout -->
+        <section class="problem-section">
+            <div class="problem-title">Why Book Now?</div>
+            <div class="problem-text">
+                Persistent pain can get worse without proper diagnosis. Our specialists use advanced imaging and proven
+                treatment methods to get you back to normal activity, fast.
+            </div>
+        </section>
+
+        <!-- Booking Form -->
+        <section class="form-wrapper">
+            <div class="success-message" id="successMessage">
+                <div class="success-title">✓ Consultation Booked!</div>
+                <div class="success-text">
+                    Thank you! We've received your request. A specialist will confirm your appointment within 2 hours
+                    via phone call.
+                </div>
+            </div>
+
+            <form id="consultationForm" class="form" style="display: none;">
+                <div class="form-title">Book Your Consultation</div>
+
+                <div class="form-group">
+                    <label for="fullName">Full Name *</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="Your full name" required
+                        minlength="2">
+                </div>
+
+                <div class="form-group">
+                    <label for="phoneNumber">Phone Number *</label>
+                    <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="+91 9876543210"
+                        pattern="^\+91[0-9]{10}$" required>
+                    <div class="form-note">Format: +91 followed by 10 digits</div>
+                </div>
+
+                <button type="submit" class="cta-button" id="submitBtn">Book Your Appointment</button>
+            </form>
+
+            <form id="initialForm" class="form">
+                <div class="form-title">Let's Get Started</div>
+
+                <div class="form-group">
+                    <label for="initialName">Full Name *</label>
+                    <input type="text" id="initialName" name="initialName" placeholder="Your full name" required
+                        minlength="2">
+                </div>
+
+                <div class="form-group">
+                    <label for="initialPhone">Phone Number *</label>
+                    <input type="tel" id="initialPhone" name="initialPhone" placeholder="+91 9876543210"
+                        pattern="^\+91[0-9]{10}$" required>
+                    <div class="form-note">Format: +91 followed by 10 digits</div>
+                </div>
+
+                <button type="submit" class="cta-button" id="initialSubmitBtn">Book Your Consultation</button>
+            </form>
+        </section>
+
+        <footer class="footer">
+            <p>By booking, you agree to our <a href="#" class="privacy-link">Privacy Policy</a></p>
+        </footer>
+    </div>
+
+    <script>
+        // Form submission handler
+        document.getElementById('initialForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const fullName = document.getElementById('initialName').value.trim();
+            const phoneNumber = document.getElementById('initialPhone').value.trim();
+
+            // Validate phone format
+            if (!/^\+91[0-9]{10}$/.test(phoneNumber)) {
+                alert('Please enter a valid phone number in format: +91 9876543210');
+                return;
+            }
+
+            // Fire GTM event before showing success
+            if (window.dataLayer) {
+                window.dataLayer.push({
+                    'event': 'consultation_form_submitted',
+                    'patient_name': fullName,
+                    'phone_number': phoneNumber,
+                    'form_type': 'consultation_booking',
+                    'page_location': window.location.href,
+                    'timestamp': new Date().toISOString()
+                });
+
+                // Log to console for debugging
+                console.log('GTM Event Fired:', {
+                    'event': 'consultation_form_submitted',
+                    'patient_name': fullName,
+                    'phone_number': phoneNumber
+                });
+            }
+
+            // Hide form and show success message
+            document.getElementById('initialForm').style.display = 'none';
+            document.getElementById('consultationForm').style.display = 'none';
+            document.getElementById('successMessage').classList.add('show');
+
+            // Optional: Simulate sending to backend
+            console.log('Form submitted successfully:', { fullName, phoneNumber });
+        });
+
+        // Auto-format phone input
+        document.getElementById('initialPhone').addEventListener('input', function (e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length === 0) {
+                e.target.value = '';
+            } else if (value.length <= 10) {
+                e.target.value = '+91' + value;
+            } else {
+                e.target.value = '+91' + value.slice(-10);
+            }
+        });
+
+        // Prevent leading spaces in name
+        document.getElementById('initialName').addEventListener('input', function (e) {
+            if (e.target.value.startsWith(' ')) {
+                e.target.value = e.target.value.trimStart();
+            }
+        });
+    </script>
+</body>
+
+</html>
